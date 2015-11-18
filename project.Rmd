@@ -1,0 +1,32 @@
+---
+title: "Tooth investiation"
+author: "Jimi Damon"
+date: "11/18/2015"
+output: pdf_document
+hitheme: tomorrow
+mode: selfcontained
+highlighter: highlight.js
+framework: io2012
+url:
+  assets: ../../assets
+  lib: ../../librariesNew
+widgets: mathjax
+---
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(fig.width=12, fig.height=8, fig.path='./figure/',
+                     warning=FALSE, message=FALSE)
+```
+
+## Overview
+
+## Simulations 
+
+### Loading the ToothGrowth Data
+
+### Summary of the data
+
+### Statistical Tests
+
+
+## Conclusions
+
