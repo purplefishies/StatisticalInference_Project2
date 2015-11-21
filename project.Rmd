@@ -19,14 +19,50 @@ knitr::opts_chunk$set(fig.width=12, fig.height=8, fig.path='./figure/',
 
 ## Overview
 
-## Simulations 
+In this paper I will be examining the ToothGrowth dataset that comes
+by default with the R programming language.  I will be constructing
+plots that back up the statistical calculations that I will be making.
 
-### Loading the ToothGrowth Data
+I loaded up basic libraries first and then examined the ToothGrowth
+data by running 
+```{r,echo=TRUE,eval=FALSE}
+ ?ToothGrowth
+```
+From the query of the ToothGrowth data I found that there are 3
+columns of data : one column is the length of teeth specified as len,
+and two other columns are independent variables labeled as Supp ,
+indicating the type of supplement and dose, indicating the dosage in milligrams.
 
-### Summary of the data
+In order to do a basic analysis on this data set , I will convert the 
+ToothGrowth data frame into a tbl_df and make modifications using the
+
+dplyr library.
+```{r,echo=TRUE }
+library(dplyr)
+library(ggplot2)
+tg <- tbl_df(ToothGrowth)
+tg$dose <- factor(tg$dose)
+```
+From here I see that there are only two groups of supp. They are
+```{r,echo=TRUE}
+ unique(factor(tg$supp))
+```
+
+A quick plot of the data
+```{r,echo=TRUE}
+ggplot( tg, aes(x=dose,y=len,fill=supp)) + geom_bar(position=position_dodge(), stat="identity") 
+```
+
+A quick examination of the data
+```{r,echo=TRUE}
+knitr::kable(tg %>% group_by( supp, dose ) %>% summarize( len=mean(len) ) %>% arrange(dose))
+```
+
 
 ### Statistical Tests
+```{r,echo=TRUE}
+t.test(len ~ supp, data=tg , paired=TRUE )
+```
 
-
-## Conclusions
-
+The samples are not equal as out calculated p-value is less than
+0.05, the signifcance level.   Hence we reject the null-hypothesis
