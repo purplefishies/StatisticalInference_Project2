@@ -28,10 +28,13 @@ data by running
 ```{r,echo=TRUE,eval=FALSE}
  ?ToothGrowth
 ```
+
 From the query of the ToothGrowth data I found that there are 3
 columns of data : one column is the length of teeth specified as len,
 and two other columns are independent variables labeled as Supp ,
-indicating the type of supplement and dose, indicating the dosage in milligrams.
+indicating the type of supplement and dose, indicating the dosage in
+milligrams.  The type of supplement is either Vitamic C provided by
+Orange Juice (OJ) or by ascorbic acid supplements ( VC ).
 
 In order to do a basic analysis on this data set , I will convert the 
 ToothGrowth data frame into a tbl_df and make modifications using the
@@ -64,5 +67,7 @@ knitr::kable(tg %>% group_by( supp, dose ) %>% summarize( len=mean(len) ) %>% ar
 t.test(len ~ supp, data=tg , paired=TRUE )
 ```
 
-The samples are not equal as out calculated p-value is less than
-0.05, the signifcance level.   Hence we reject the null-hypothesis
+The samples are not equal as out calculated p-value is less than 0.05,
+the signifcance level.  Hence we reject the null-hypothesis thereby
+saying that there is in fact a difference between using 
+

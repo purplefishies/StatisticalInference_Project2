@@ -216,7 +216,9 @@ data by running </p>
 <p>From the query of the ToothGrowth data I found that there are 3
 columns of data : one column is the length of teeth specified as len,
 and two other columns are independent variables labeled as Supp ,
-indicating the type of supplement and dose, indicating the dosage in milligrams.</p>
+indicating the type of supplement and dose, indicating the dosage in
+milligrams.  The type of supplement is either Vitamic C provided by
+Orange Juice (OJ) or by ascorbic acid supplements ( VC ).</p>
 
 <p>In order to do a basic analysis on this data set , I will convert the 
 ToothGrowth data frame into a tbl_df and make modifications using the</p>
@@ -291,7 +293,25 @@ tg$dose &lt;- factor(tg$dose)
 
 <h3>Statistical Tests</h3>
 
-<h2>Conclusions</h2>
+<pre><code class="r">t.test(len ~ supp, data=tg , paired=TRUE )
+</code></pre>
+
+<pre><code>## 
+##  Paired t-test
+## 
+## data:  len by supp
+## t = 3.3026, df = 29, p-value = 0.00255
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  1.408659 5.991341
+## sample estimates:
+## mean of the differences 
+##                     3.7
+</code></pre>
+
+<p>The samples are not equal as out calculated p-value is less than 0.05,
+the signifcance level.  Hence we reject the null-hypothesis thereby
+saying that there is in fact a difference between using </p>
 
 </body>
 
