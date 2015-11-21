@@ -81,6 +81,23 @@ knitr::kable(tg %>% group_by( supp, dose ) %>% summarize( len=mean(len) ) %>% ar
 
 ### Statistical Tests
 
+```r
+t.test(len ~ supp, data=tg , paired=TRUE )
+```
 
-## Conclusions
+```
+## 
+## 	Paired t-test
+## 
+## data:  len by supp
+## t = 3.3026, df = 29, p-value = 0.00255
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  1.408659 5.991341
+## sample estimates:
+## mean of the differences 
+##                     3.7
+```
 
+The samples are not equal as out calculated p-value is less than
+0.05, the signifcance level.   Hence we reject the null-hypothesis
