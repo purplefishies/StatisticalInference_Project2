@@ -104,5 +104,6 @@ t.test(len ~ supp, data=tg , paired=TRUE )
 
 The samples are not equal as out calculated p-value is less than 0.05,
 the signifcance level.  Hence we reject the null-hypothesis thereby
-saying that there is in fact a difference between using 
+saying that there is in fact a difference between using Orange Juice and 
+the Ascorbic Acid supplements of Vitamin C.
 
